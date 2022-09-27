@@ -1,23 +1,71 @@
-import logo from './logo.svg';
-import './App.css';
+import Header from "./components/header";
+import { useState } from "react";
+import Footer from "./components/Footer";
+import Addnewblog from "./components/Addblog";
+import Blogs from "./components/blogs";
+
+import "./App.css";
+
+let defaultBlogList = [
+  {
+    id: "uniqueId-1",
+    title: "Blog Title",
+    subtitle: "Sub Title",
+    content: "This is going to be very long line.",
+    author: "Username of the user",
+  },
+  {
+    id: "uniqueId-2",
+    title: "Blog Title",
+    subtitle: "Sub Title",
+    content: "This is going to be very long line.",
+    author: "Username of the user",
+  },
+  {
+    id: "uniqueId-3",
+    title: "Blog Title",
+    subtitle: "Sub Title",
+    content: "This is going to be very long line.",
+    author: "Username of the user",
+  },
+  {
+    id: "uniqueId-4",
+    title: "Blog Title",
+    subtitle: "Sub Title",
+    content: "This is going to be very long line.",
+    author: "Username of the user",
+  },
+  {
+    id: "uniqueId-5",
+    title: "Blog Title",
+    subtitle: "Sub Title",
+    content: "This is going to be very long line.",
+    author: "Username of the user",
+  },
+  {
+    id: "uniqueId-6",
+    title: "Blog Title",
+    subtitle: "Sub Title",
+    content: "This is going to be very long line.",
+    author: "Username of the user",
+  },
+];
 
 function App() {
+
+
+  const [blogList, setblogs] = useState(defaultBlogList);
+
+  const addnewblogs = (newblogobject) => {
+    setblogs([...blogList,newblogobject ]);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Header text="BlogSite" />
+      <Blogs blogList={blogList} />
+      <Addnewblog addblogfunction={addnewblogs} />
+      <Footer />
     </div>
   );
 }
