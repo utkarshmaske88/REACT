@@ -1,5 +1,6 @@
 {
   "name": "blogsite",
+  "homepage": "http://utkarshmaske88.github.io/react", 
   "version": "0.1.0",
   "private": true,
   "dependencies": {
